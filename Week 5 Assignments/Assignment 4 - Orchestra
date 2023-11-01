@@ -1,0 +1,86 @@
+package Orchestra;
+
+abstract class Instrument {
+    String brand;
+    Instrument(String b) {
+        brand = b;
+    }
+    public String whatIsPlaying() {
+        return "Instrument";
+    }
+    public abstract void play();
+    public abstract void tweaking();
+}
+
+class Wired extends Instrument {
+    Wired(String b) {
+        super(b);
+    }
+    public void play() {
+        System.out.println("Wired");
+    }
+    public void tweaking() {}
+}
+
+class Brass extends Instrument {
+    Brass(String b) {
+        super(b);
+    }
+    public void play() {
+        System.out.println("Brass");
+    }
+    public String whatIsPlaying() {
+        return "Brass";
+    }
+    public void tweaking() {}
+}
+
+class Percussion extends Instrument {
+    Percussion(String b) {
+        super(b);
+    }
+    public void play() {
+        System.out.println("Percussion");
+    }
+    public void tweaking() {}
+}
+
+class Trumpet extends Brass {
+    Trumpet(String b) {
+        super(b);
+    }
+    public void play() {
+        System.out.println("Brass");
+    }
+    public void tweaking() {
+        System.out.println("Trumpet tweaking");
+    }
+}
+
+class Guitar extends Wired {
+    Guitar(String b) {
+        super(b);
+    }
+    public void play() {
+        System.out.println("Guitar Yamaha");
+    }
+    public String whatIsPlaying() {
+        return "Guitar";
+    }
+}
+
+public class Orchestra {
+    public static void main(String[] args) {
+        Instrument[] orchestra = new Instrument[5];
+        orchestra[0] = new Brass("Amati");
+        orchestra[1] = new Percussion("Conga");
+        orchestra[2] = new Wired("Stradivarius");
+        orchestra[3] = new Trumpet("Velklant");
+        orchestra[4] = new Guitar("Yamaha");
+        System.out.println("The orchestra consists of: ");
+        for (Instrument i : orchestra) {
+            i.play();
+        }
+        System.out.println("\nIn the orchestra there are 2 wired, 2 brass and 2 percussion instruments.");
+    }
+}
