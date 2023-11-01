@@ -1,0 +1,51 @@
+package Cookies;
+
+class Cookie {
+    protected int weight;
+    protected String shape;
+    public Cookie(int w, String s) {
+        weight = w;
+        shape = s;
+    }
+    public void print() {
+        System.out.println("The cookie has a " + shape + " shape, and a weight of " + weight + " grams.");
+    }
+}
+
+class ChocolateCookie extends Cookie {
+    protected int percentChocolate;
+    public ChocolateCookie(int w, String s, int p) {
+        super(w, s);
+        percentChocolate = p;
+    }
+    public void print() {
+        super.print();
+        System.out.println("The percent of chocolate is " + percentChocolate + "%");
+    }
+}
+
+class ChocolateCookieWithExtras extends ChocolateCookie {
+    protected String extra;
+    public ChocolateCookieWithExtras(int w, String s, int p, String x) {
+        super(w, s, p);
+        extra = x;
+    }
+    public void print() {
+        super.print();
+        System.out.println("It also contains " + extra);
+    }
+}
+
+public class Cookies {
+    public static void main(String[] args) {
+        Cookie tutku = new Cookie(20, "patterned circle");
+        ChocolateCookie bombica = new ChocolateCookie(30, "round", 40);
+        ChocolateCookieWithExtras bajadera = new ChocolateCookieWithExtras(15, "parallelepiped", 60, "hazelnuts");
+        System.out.println("\nOutputting data for the cookie TUTKU:");
+        tutku.print();
+        System.out.println("\nOutputting data for the cookie BOMBICA:");
+        bombica.print();
+        System.out.println("\nOutputting data for the cookie BAJADERA:");
+        bajadera.print();
+    }
+}
