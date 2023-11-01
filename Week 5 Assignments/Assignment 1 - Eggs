@@ -1,0 +1,36 @@
+package EGGS;
+
+class Egg {
+    int category;
+    public Egg(int c) {
+        category = c;
+        System.out.println("Egg constructor called.");
+    }
+    void EGG() {
+        System.out.println("Each egg has an albumen and a yolk.");
+    }
+    void print() {
+        System.out.println("The egg is a nutritional product.");
+    }
+}
+
+class OstrichEgg extends Egg {
+    public OstrichEgg(int c) {
+        super(c);
+        System.out.println("OstrichEgg constructor called.");
+    }
+    void EGG() {
+        System.out.println("The albumen and yolk of an OSTRICH egg are the largest.");
+    }
+}
+
+public class EGGS {
+    public static void main(String[] args) {
+        Egg henEgg = new Egg(1);
+        OstrichEgg ostrichEgg = new OstrichEgg(2);
+        henEgg.EGG();
+        henEgg.print();
+        ostrichEgg.EGG();
+        ostrichEgg.print();
+    }
+}
