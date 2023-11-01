@@ -1,0 +1,69 @@
+package Animal;
+
+class Animal {
+    public String name;
+    public Animal() {
+        name = "";
+    }
+    public Animal(String n) {
+        name = n;
+    }
+    public void onomatopoeia() {
+        System.out.println("There is no onomatopoeia for " + name);
+    }
+}
+
+class Dog extends Animal {
+    public Dog(String n) {
+        super(n);
+    }
+    public void onomatopoeia() {
+        System.out.println("The onomatopoeia for " + name + " is ARF ARF");
+    }
+}
+
+class Lion extends Animal {
+    public Lion(String n) {
+        super(n);
+    }
+    public void onomatopoeia() {
+        System.out.println("The onomatopoeia for " + name + " is ROAR");
+    }
+}
+
+class Frog extends Animal {
+    public Frog(String n) {
+        super(n);
+    }
+    public void onomatopoeia() {
+        System.out.println("The onomatopoeia for " + name + " is CROAK");
+    }
+}
+
+class SARA_MOUNTAIN_DOG extends Dog {
+    public SARA_MOUNTAIN_DOG(String n) {
+        super(n);
+    }
+    public void traits() {
+        System.out.println("The Sara mountain dog " + name + " is a champion of Macedonia for 2009");
+    }
+}
+
+public class ZOO {
+    public static void main(String[] args) {
+        Animal[] animals = {
+            new Lion("Simba"),
+            new Dog("Lassie"),
+            new Animal("Loch Ness"),
+            new Frog("Kermit"),
+            new Dog("Rex"),
+            new SARA_MOUNTAIN_DOG("Sarko")
+        };
+        for (Animal a : animals) {
+            a.onomatopoeia();
+            if (a instanceof SARA_MOUNTAIN_DOG) {
+                ((SARA_MOUNTAIN_DOG) a).traits();
+            }
+        }
+    }
+}
