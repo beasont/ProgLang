@@ -1,0 +1,91 @@
+package exercises;
+
+public class ass1 {
+
+	interface two_D_shape {
+	double PI=3.14;
+	abstract void parameters();
+	abstract double area();
+	abstract double perimeter();
+	}
+	
+	interface three_D_shape {
+		abstract float volume();
+	}
+	
+class Triangle implements two_D_shape {
+
+		double sideA,sideB,sideC,height;
+		public Triangle(double a, double b, double c, double h) {
+			sideA=a;
+			sideB=b;
+			sideC=c;
+			height=h;
+			System.out.println("A new triangle has been created.");
+		}
+
+		boolean rectangular() {
+			if(Math.pow(sideA, 2)+Math.pow(sideB, 2)==Math.pow(sideC, 2))
+				return true;
+			else
+				return false;
+			
+		}
+
+		@Override
+		public double area() {
+			return (sideA * height) / 2;
+		}
+		@Override
+		public double perimeter() {
+		
+			return (sideA + sideB + sideC);
+		}
+		@Override
+			public void parameters() {
+			System.out.println("Side A: "+sideA+", Side B: "+sideB+", Side C: "+sideC+", and the height is: "+sideC+".");
+			}
+		}
+class Sphere implements two_D_shape, three_D_shape {
+	
+float radius;
+
+public Sphere(float r) {
+radius = r;
+System.out.println("A new sphere has been created.");
+}
+
+	@Override
+	public float volume() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void parameters() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public double area() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double perimeter() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}
+	
+	
+	
+	public static void main(String[] args) {
+Triangle T1=new Triangle(3,5,6,3);
+
+	}
+
+}
