@@ -41,8 +41,8 @@ class Vehicle implements Serializable {
 
 class Car extends Vehicle {
     private int FuelCapacity;
-    private float C02;
-    private String NCAP;
+    private transient float C02;
+    private transient String NCAP;
     private static final long serialVersionUID = 2148717506675874818L;
 
     public int getFuelCapacity() {
@@ -94,7 +94,8 @@ public class Demo {
         car.setFuelCapacity(72);
         car.setC02(42.8f);
         car.setNCAP("5 Stars");
-
+        System.out.println(car);
+        
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Cars.txt"))) {
             oos.writeObject(car);
         } catch (IOException e) {
